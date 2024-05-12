@@ -1,0 +1,45 @@
+function [back_spectrum,p] = rubber_band(spectrum, N, iterations)
+%N is the order
+
+S = size(spectrum);
+
+
+back_spectrum = spectrum;
+   
+    for m  = 1 : iterations
+            % Apply polynomial
+
+            %plot(data,'r');
+            p = polyfit(1:1:1024, data, N ); % compute polynomial
+            solution = polyval(p,axis);
+            
+            temp(1,:) = spectrum(n,:);
+            temp(2,:) = solution;
+            
+
+
+ %           plot(solution, 'b');
+           % pause(0.15); 
+            data = min(temp); 
+%            
+%              if m ~= iterations 
+%                
+%                 data(500:600) = spectrum(n,500:600);
+%                 
+% 
+%             end
+%             
+            
+    end
+   
+    
+    back_spectrum=spectrum - data;
+    
+    
+end
+
+%hold off;
+
+%figure; plot(back_spectrum(n,:));pause(0.25);
+
+end
